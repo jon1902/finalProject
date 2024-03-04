@@ -1,0 +1,11 @@
+.details-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+    width: 100%;
+    overflow: auto;
+}
+
+.add-property-history-button {
+    margin: 0 0 16px 0;
+}

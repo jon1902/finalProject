@@ -1,0 +1,12 @@
+"use strict";
+exports.__esModule = true;
+var express_1 = require("express");
+var propertyHistory_controller_1 = require("../controllers/propertyHistory.controller");
+var auth_middleware_1 = require("../middlewares/auth.middleware");
+var propertyHistoryRouter = express_1["default"].Router();
+propertyHistoryRouter.get("/properties/:propertyId", auth_middleware_1.AuthMiddleware.isConnected, propertyHistory_controller_1.PropertyHistoryController.findByPropertyId);
+propertyHistoryRouter.get("/", auth_middleware_1.AuthMiddleware.isConnected, propertyHistory_controller_1.PropertyHistoryController.findByUserId);
+propertyHistoryRouter.post("/properties/:propertyId", auth_middleware_1.AuthMiddleware.isConnected, propertyHistory_controller_1.PropertyHistoryController.create);
+propertyHistoryRouter.patch("/:propertyHistoryId", auth_middleware_1.AuthMiddleware.isConnected, propertyHistory_controller_1.PropertyHistoryController.update);
+propertyHistoryRouter["delete"]("/:propertyHistoryId", auth_middleware_1.AuthMiddleware.isConnected, propertyHistory_controller_1.PropertyHistoryController["delete"]);
+exports["default"] = propertyHistoryRouter;

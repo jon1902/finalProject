@@ -1,0 +1,9 @@
+.home-card {
+    min-width: 100%;
+}
+
+.cardContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
